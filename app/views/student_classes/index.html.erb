@@ -1,0 +1,9 @@
+All StuClass
+
+<ul>
+<% @student_classes.each do |stuclass|%>
+<li>
+    <%= stuclass.student.to_s %> Enrolled? <%= stuclass.current %>
+</li>
+    <% end %>
+</ul>

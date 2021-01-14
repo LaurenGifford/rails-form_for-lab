@@ -1,9 +1,10 @@
-<h1>Edit Student</h1>
+<h1>Edit Student: <%=@student_to_edit.to_s %></h1>
 
-<%= form_for @student do |f|%>
-<label>First Name:</label>
-<%= f.text_field :first_name%><br>
-<label>Last Name:</label>
-<%= f.text_field :last_name%><br>
-<br><%= f.submit "Enter"%>
+<%= form_for @student_to_edit do |f|%>
+<%= f.label :first_name %>
+<%= f.text_field :first_name %>
+<%= f.label :last_name %>
+<%= f.text_field :last_name %>
+<%= f.submit %>
 <% end %>
+

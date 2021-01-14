@@ -1,0 +1,11 @@
+<h1>Edit a Student Class</h1>
+
+<%= form_for @student_class do |f| %>
+
+    <%= f.label :student_id, "Student ID" %>
+    <%= f.collection_select :student_id, Student.all, :id, :to_s %>
+    <%= f.collection_select :school_class_id, SchoolClass.all, :id, :title %>
+    <%= f.check_box :current, {}, 'true', 'false' %>
+    
+    <%= f.submit %>
+    <% end %>

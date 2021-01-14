@@ -1,7 +1,17 @@
 <h1><%="#{@student}"%>'s Page</h1>
 
 
-<p>About Me</p>
+<h2>About Me</h2>
 
-<div>I was born in: <%= @student.created_at.year%></div>
+<p>I was born on: <%= @student.born%></p>
 
+<h3>My Classes</h3>
+    <ul>
+    <% @student.student_classes.each do |student_class| %>
+        <li>
+            <%= student_class.school_class.title %>
+            <%= button_to "Leave Class", student_class_path(student_class), method: "delete"%>
+        
+        </li>
+        <% end %>
+    </ul>

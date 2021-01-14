@@ -1,8 +1,10 @@
-<h1>Student Form</h1>
-<p>Here are all of the Students:</p>
+<h1>Student Roster</h1>
+<p>Here are all of the enrolled students:</p>
 
 
 <% @students.each do |student| %>
-<div><%= link_to student.to_s, "students/#{student.id}"%></div>
+<div><%= link_to student.to_s, student_path(student)%> 
+<%=(button_to "Update student", edit_student_path(student), method: "patch")%>
+</div>
 <% end %>
 

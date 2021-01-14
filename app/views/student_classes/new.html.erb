@@ -1,0 +1,11 @@
+New StuClass
+
+<%= form_for @new_student_class do |f| %>
+ 
+    <%= f.label :student_id, "Student ID" %>
+
+    <%= f.collection_select :student_id, Student.all, :id, :to_s %>
+    <%= f.label :school_class_id, "School Class" %>
+    <%= f.collection_select :school_class_id, SchoolClass.all, :id, :title %>
+    <%= f.submit %>
+    <% end %>

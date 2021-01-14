@@ -8,27 +8,26 @@ class StudentsController < ApplicationController
   end
 
   def new
-    @student = Student.new
+    @new_student = Student.new
   end
 
   def create
-    @student = Student.create(strong_params)
-    redirect_to student_path(@student)
+    new_student = Student.create(strong_params)
+    redirect_to student_path(new_student)
   end
 
   def edit
-    @student = Student.find(params[:id])
+    @student_to_edit = Student.find(params[:id])
   end
 
   def update
-    @student = Student.find(params[:id])
-    @student.update(strong_params)
-    redirect_to student_path(@student)
+    student_to_edit = Student.find(params[:id])
+    student_to_edit.update(strong_params)
+    redirect_to student_path(student_to_edit)
   end
 
   def destroy
-    @student = Student.find(params[:id])
-    @student.destroy
+    Student.destroy(params[:id])
     redirect_to students_path
   end
 
@@ -37,5 +36,10 @@ class StudentsController < ApplicationController
   def strong_params
     params.require(:student).permit(:first_name, :last_name)
   end
+
+  # or
+  # def params(*arg)
+  # params.require(:student).permit(*arg)
+#   end
 
 end
